@@ -279,7 +279,11 @@ public void OnClientDisconnect(int client)
 	g_bNameActive[client] = false;
 	g_bTagActive[client] = false;
 
-	g_bForced[client] = true;
+	g_iPlayerInfo[client].Chat = 0;
+	g_iPlayerInfo[client].Name = 3;
+	Format(g_iPlayerInfo[client].Tag, 64, "");
+
+	g_bForced[client] = false;
 }
 
 public Action Timer_LoadDelay(Handle timer, any userid)
